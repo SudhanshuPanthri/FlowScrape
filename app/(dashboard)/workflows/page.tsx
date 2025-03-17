@@ -63,7 +63,7 @@ const UserWorkflows = async () => {
       </div>
     );
   }
-  return <div></div>;
+  return <pre>{JSON.stringify(workflows, null, 4)}</pre>;
 };
 
 export default Page;
