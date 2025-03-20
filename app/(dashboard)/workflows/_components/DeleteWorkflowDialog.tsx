@@ -60,12 +60,13 @@ const DeleteWorkflowDialog = ({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel onClick={() => setConfirmText("")}>
+            Cancel
+          </AlertDialogCancel>
           <AlertDialogAction
             disabled={confirmText !== workflowName || deleteMutation.isPending}
             className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            onClick={(e) => {
-              e.stopPropagation();
+            onClick={() => {
               toast.loading("Deleting Workflow...", { id: workflowId });
               deleteMutation.mutate(workflowId);
             }}
